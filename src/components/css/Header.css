@@ -1,0 +1,13 @@
+.containerHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.infoLogin {
+  display: flex;
+}
+
+p {
+  margin-right: 20px;
+}

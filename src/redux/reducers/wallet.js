@@ -1,3 +1,5 @@
+import { REQUEST_CURRENCIES_SUCCESS } from '../actions';
+
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
@@ -7,6 +9,10 @@ const INITIAL_STATE = {
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+  case REQUEST_CURRENCIES_SUCCESS:
+    return {
+      currencies: action.payload,
+    };
   default:
     return state;
   }
