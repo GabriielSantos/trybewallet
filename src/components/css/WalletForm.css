@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+input , label , button {
+  margin: 5px;
+}

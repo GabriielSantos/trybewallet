@@ -16,7 +16,7 @@ describe('Testa a tela de login', () => {
     expect(screen.getByRole('button', { name: /entrar/i })).toBeInTheDocument();
   });
 
-  test('Testa se o botão só é ativado quando os dados corretos são informados', () => {
+  test('Testa se o botão só é ativado quando os dados corretos são informados 1', () => {
     renderWithRouterAndRedux(<App />);
 
     const inputEmail = screen.getByTestId(emailInputId);
@@ -30,7 +30,7 @@ describe('Testa a tela de login', () => {
     expect(btnEntrar).toBeDisabled();
   });
 
-  test('Testa se o botão só é ativado quando os dados corretos são informados', () => {
+  test('Testa se o botão só é ativado quando os dados corretos são informados 2', () => {
     renderWithRouterAndRedux(<App />);
 
     const inputEmail = screen.getByTestId(emailInputId);
@@ -43,7 +43,7 @@ describe('Testa a tela de login', () => {
     expect(btnEntrar).toBeDisabled();
   });
 
-  test('Testa se o botão só é ativado quando os dados corretos são informados', () => {
+  test('Testa se o botão só é ativado quando os dados corretos são informados 3', () => {
     renderWithRouterAndRedux(<App />);
 
     const inputEmail = screen.getByTestId(emailInputId);
@@ -56,7 +56,7 @@ describe('Testa a tela de login', () => {
     expect(btnEntrar).toBeDisabled();
   });
 
-  test('Testa se o botão só é ativado quando os dados corretos são informados', () => {
+  test('Testa se o botão só é ativado quando os dados corretos são informados 4', () => {
     renderWithRouterAndRedux(<App />);
 
     const inputEmail = screen.getByTestId(emailInputId);

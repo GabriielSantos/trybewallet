@@ -1,7 +1,9 @@
 .containerHeader {
+  background-color: lightgreen;
   display: flex;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: auto;
+  width: 100%;
 }
 
 .infoLogin {

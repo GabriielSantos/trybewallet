@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addDespesas, requestCurrencies } from '../redux/actions';
 import getCurrencies from '../services/issAPI';
+import './css/WalletForm.css';
 
 class WalletForm extends Component {
   state = {
@@ -58,7 +59,7 @@ class WalletForm extends Component {
     const { currencies } = this.props;
 
     return (
-      <div>
+      <div className="containerForm">
         <form>
           <label htmlFor="value">Valor</label>
           <input
