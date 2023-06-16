@@ -41,7 +41,7 @@ class Table extends Component {
 
           <tbody>
 
-            { expenses.forEach((expense) => {
+            { expenses.map((expense) => (
               <tr key={ expense.id }>
                 <td>{ expense.description }</td>
                 <td>{ expense.tag }</td>
@@ -51,9 +51,8 @@ class Table extends Component {
                 <td>{ this.getCambio(expense)}</td>
                 <td>{ this.getConvertValue(expense)}</td>
                 <td>Real</td>
-              </tr>;
-            })}
-
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
