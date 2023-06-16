@@ -210,3 +210,47 @@ const mockData = {
 };
 
 export default mockData;
+
+export const currencies = Object.keys(mockData).filter((curr) => curr !== 'USDT');
+
+export const expenses = [
+  {
+    value: '2',
+    description: 'Despesa 1',
+    currency: 'ILS',
+    method: 'Cartão de débito',
+    tag: 'Trabalho',
+    id: 0,
+    exchangeRates: mockData,
+  },
+  {
+    value: '3',
+    description: 'Despesa 2',
+    currency: 'USD',
+    method: 'Dinheiro',
+    tag: 'Trabalho',
+    id: 1,
+    exchangeRates: mockData,
+  },
+  {
+    value: '4',
+    description: 'Despesa 3',
+    currency: 'AUD',
+    method: 'Dinheiro',
+    tag: 'Lazer',
+    id: 2,
+    exchangeRates: mockData,
+  },
+];
+
+const mockTotais = {
+  totalExp1: (expenses[0].value * mockData[expenses[0].currency].ask).toFixed(2),
+  totalExp2: (expenses[1].value * mockData[expenses[1].currency].ask).toFixed(2),
+  totalExp3: (expenses[2].value * mockData[expenses[2].currency].ask).toFixed(2),
+
+};
+
+mockTotais.totalGeral = (+mockTotais.totalExp1
+  + +mockTotais.totalExp2 + +mockTotais.totalExp3).toFixed(2);
+
+export { mockTotais };
