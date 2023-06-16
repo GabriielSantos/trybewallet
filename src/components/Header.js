@@ -11,7 +11,6 @@ class Header extends Component {
       expenses.reduce((acc, curr) => acc + (Number(curr.value) * curr
         .exchangeRates[curr.currency].ask), 0).toFixed(2));
 
-    console.log(test);
     return test;
   };
 

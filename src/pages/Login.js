@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addUser } from '../redux/actions';
 import './Login.css';
 
@@ -41,7 +41,7 @@ class Login extends React.Component {
     const { isDisable, email, password } = this.state;
 
     return (
-      <div className="container">
+      <div className="containerLogin">
         <h1>Trybe Wallet</h1>
 
         <form className="login">

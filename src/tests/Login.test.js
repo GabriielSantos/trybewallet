@@ -6,6 +6,7 @@ import { renderWithRouterAndRedux } from './helpers/renderWith';
 
 const emailInputId = 'email-input';
 const passwordInputId = 'password-input';
+const emailTest = 'email@email.com';
 
 describe('Testa a tela de login', () => {
   test('Testa os componentes na tela', () => {
@@ -37,7 +38,7 @@ describe('Testa a tela de login', () => {
     const inputPassword = screen.getByTestId(passwordInputId);
     const btnEntrar = screen.getByRole('button', { name: /entrar/i });
 
-    userEvent.type(inputEmail, 'email@email.com');
+    userEvent.type(inputEmail, emailTest);
     userEvent.type(inputPassword, '12345');
 
     expect(btnEntrar).toBeDisabled();
@@ -63,7 +64,7 @@ describe('Testa a tela de login', () => {
     const inputPassword = screen.getByTestId(passwordInputId);
     const btnEntrar = screen.getByRole('button', { name: /entrar/i });
 
-    userEvent.type(inputEmail, 'email@email.com');
+    userEvent.type(inputEmail, emailTest);
     userEvent.type(inputPassword, '1234567');
 
     expect(btnEntrar).toBeEnabled();
@@ -75,7 +76,7 @@ describe('Testa a tela de login', () => {
     const inputPassword = screen.getByTestId(passwordInputId);
     const btnEntrar = screen.getByRole('button', { name: /entrar/i });
 
-    userEvent.type(inputEmail, 'email@email.com');
+    userEvent.type(inputEmail, emailTest);
     userEvent.type(inputPassword, '1234567');
 
     userEvent.click(btnEntrar);
@@ -89,7 +90,7 @@ describe('Testa a tela de login', () => {
     const inputPassword = screen.getByTestId(passwordInputId);
     const btnEntrar = screen.getByRole('button', { name: /entrar/i });
 
-    const emailToCheck = 'email@email.com';
+    const emailToCheck = emailTest;
     userEvent.type(inputEmail, emailToCheck);
     userEvent.type(inputPassword, '1234567');
 

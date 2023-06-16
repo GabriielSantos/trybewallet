@@ -12,7 +12,7 @@ class WalletForm extends Component {
     description: '',
     currency: 'USD',
     method: 'Dinheiro',
-    tag: 'Alimentaçãoo',
+    tag: 'Alimentação',
     exchangeRates: {},
   };
 
@@ -60,7 +60,7 @@ class WalletForm extends Component {
 
     return (
       <div className="containerForm">
-        <form>
+        <form className="Wallet">
           <label htmlFor="value">Valor</label>
           <input
             type="number"
@@ -89,7 +89,7 @@ class WalletForm extends Component {
             value={ currency }
             onChange={ this.handleChange }
           >
-            {currencies.map((currencyId) => (
+            { currencies.map((currencyId) => (
               <option key={ currencyId } value={ currencyId }>{ currencyId }</option>
             ))}
           </select>

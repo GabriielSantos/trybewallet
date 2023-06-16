@@ -16,15 +16,3 @@ export const addDespesas = (dataDespesas) => ({
   type: ADD_DESPESAS,
   payload: dataDespesas,
 });
-
-// export const requestCurrenciesFailure = () => ({
-//   type: REQUEST_CURRENCIES_FAILURE,
-// });
-
-// export const actionFetchCurrencies = () => (dispatch) => {
-//   try {
-//     dispatch(requestCurrenciesSuccess(dispatch));
-//   } catch (error) {
-//     dispatch(requestCurrenciesFailure());
-//   }
-// };
