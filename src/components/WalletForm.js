@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addDespesas, requestCurrencies } from '../redux/actions';
+import { addExpense, requestCurrencies } from '../redux/actions';
 import getCurrencies from '../services/issAPI';
 import './css/WalletForm.css';
 
@@ -45,7 +45,7 @@ class WalletForm extends Component {
       id: prev.id + 1,
       exchangeRates: data,
     }), () => {
-      dispatch(addDespesas(this.state));
+      dispatch(addExpense(this.state));
       this.setState((prev) => ({
         ...prev,
         value: '',
@@ -71,7 +71,7 @@ class WalletForm extends Component {
             onChange={ this.handleChange }
           />
 
-          <label htmlFor="description">Despeza</label>
+          <label htmlFor="description">Despesa</label>
           <input
             type="text"
             name="description"

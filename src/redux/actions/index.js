@@ -1,5 +1,6 @@
 export const ADD_USER = 'ADD_USER';
-export const ADD_DESPESAS = 'ADD_DESPESAS';
+export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const REMOVE_EXPENSES = 'REMOVE_EXPENSES';
 export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
 
 export const addUser = (dataUser) => ({
@@ -12,7 +13,12 @@ export const requestCurrencies = (dataCurrencies) => ({
   payload: dataCurrencies,
 });
 
-export const addDespesas = (dataDespesas) => ({
-  type: ADD_DESPESAS,
-  payload: dataDespesas,
+export const addExpense = (expenses) => ({
+  type: ADD_EXPENSES,
+  payload: expenses,
+});
+
+export const removeExpense = (expenseId) => ({
+  type: REMOVE_EXPENSES,
+  payload: expenseId,
 });

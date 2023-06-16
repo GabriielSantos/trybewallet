@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { removeExpense } from '../redux/actions';
 import './css/Table.css';
 
 class Table extends Component {
@@ -19,43 +20,54 @@ class Table extends Component {
     return +result;
   };
 
+  removeExpense = (id) => {
+    const { dispatch } = this.props;
+    dispatch(removeExpense(id));
+  };
+
   render() {
     const { expenses } = this.props;
 
     return (
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
+      <table>
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Tag</th>
+            <th>Método de pagamento</th>
+            <th>Valor</th>
+            <th>Moeda</th>
+            <th>Câmbio utilizado</th>
+            <th>Valor convertido</th>
+            <th>Moeda de conversão</th>
+            <th>Editar/Excluir</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          { expenses.map((expense) => (
+            <tr key={ expense.id }>
+              <td>{ expense.description }</td>
+              <td>{ expense.tag }</td>
+              <td>{ expense.method }</td>
+              <td>{ this.getValue(expense) }</td>
+              <td>{ this.getNameCurrency(expense)}</td>
+              <td>{ this.getCambio(expense)}</td>
+              <td>{ this.getConvertValue(expense)}</td>
+              <td>Real</td>
+              <td>
+                <button
+                  data-testid="delete-btn"
+                  onClick={ () => this.removeExpense(expense.id) }
+                >
+                  Excluir
+                </button>
+              </td>
             </tr>
-          </thead>
-
-          <tbody>
-
-            { expenses.map((expense) => (
-              <tr key={ expense.id }>
-                <td>{ expense.description }</td>
-                <td>{ expense.tag }</td>
-                <td>{ expense.method }</td>
-                <td>{ this.getValue(expense) }</td>
-                <td>{ this.getNameCurrency(expense)}</td>
-                <td>{ this.getCambio(expense)}</td>
-                <td>{ this.getConvertValue(expense)}</td>
-                <td>Real</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     );
   }
 }
@@ -66,5 +78,6 @@ const mapStateToProps = ({ wallet }) => ({
 
 Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 export default connect(mapStateToProps)(Table);

@@ -7,11 +7,11 @@ class Header extends Component {
   totalExpenses = () => {
     const { expenses } = this.props;
 
-    const test = (expenses.length < 1) ? (0) : (
+    const result = (expenses.length < 1) ? (0) : (
       expenses.reduce((acc, curr) => acc + (Number(curr.value) * curr
-        .exchangeRates[curr.currency].ask), 0).toFixed(2));
+        .exchangeRates[curr.currency].ask), 0));
 
-    return test;
+    return result.toFixed(2);
   };
 
   render() {
