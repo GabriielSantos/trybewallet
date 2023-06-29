@@ -1,6 +1,9 @@
 export const ADD_USER = 'ADD_USER';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const REMOVE_EXPENSES = 'REMOVE_EXPENSES';
+export const EDIT_EXPENSES = 'EDIT_EXPENSES';
+export const SAVE_EDIT_EXPENSES = 'SAVE_EDIT_EXPENSES';
+
 export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
 
 export const addUser = (dataUser) => ({
@@ -21,4 +24,14 @@ export const addExpense = (expenses) => ({
 export const removeExpense = (expenseId) => ({
   type: REMOVE_EXPENSES,
   payload: expenseId,
+});
+
+export const editExpense = (expenseId) => ({
+  type: EDIT_EXPENSES,
+  payload: expenseId,
+});
+
+export const saveEditedExpense = (expense) => ({
+  type: SAVE_EDIT_EXPENSES,
+  payload: expense,
 });
