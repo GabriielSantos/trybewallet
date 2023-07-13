@@ -6,16 +6,17 @@
     "node": "16 || 18"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.130",
-    "@mui/material": "^5.13.0",
+    "@mui/material": "^5.14.0",
     "@mui/x-data-grid": "^6.4.0",
     "@redux-devtools/extension": "3.2.5",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-google-charts": "^4.0.0",
@@ -37,7 +38,9 @@
     "eject": "react-scripts eject",
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
-    "lint:styles": "npx stylelint '**/*.css'"
+    "lint:styles": "npx stylelint '**/*.css'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -75,5 +78,6 @@
       "/redux/store",
       "/src/tests/"
     ]
-  }
+  },
+  "homepage": "https://github.com/GabriielSantos/trybewallet"
 }
