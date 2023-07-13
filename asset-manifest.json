@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/GabriielSantos/trybewallet/static/css/main.caee71e7.css",
+    "main.js": "/GabriielSantos/trybewallet/static/js/main.076926ee.js",
+    "static/media/background.jpg": "/GabriielSantos/trybewallet/static/media/background.9f870660a3a2c0cc6be8.jpg",
+    "index.html": "/GabriielSantos/trybewallet/index.html",
+    "main.caee71e7.css.map": "/GabriielSantos/trybewallet/static/css/main.caee71e7.css.map",
+    "main.076926ee.js.map": "/GabriielSantos/trybewallet/static/js/main.076926ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.caee71e7.css",
+    "static/js/main.076926ee.js"
+  ]
+}
