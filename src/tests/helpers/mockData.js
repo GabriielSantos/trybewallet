@@ -240,17 +240,17 @@ export const expenses = [
     tag: 'Lazer',
     id: 2,
     exchangeRates: mockData,
-  },
+  }
 ];
 
 const mockTotais = {
-  totalExp1: (expenses[0].value * mockData[expenses[0].currency].ask).toFixed(2),
-  totalExp2: (expenses[1].value * mockData[expenses[1].currency].ask).toFixed(2),
-  totalExp3: (expenses[2].value * mockData[expenses[2].currency].ask).toFixed(2),
+    totalExp1: (expenses[0].value * mockData[expenses[0].currency].ask).toFixed(2),
+    totalExp2: (expenses[1].value * mockData[expenses[1].currency].ask).toFixed(2),
+    totalExp3: (expenses[2].value * mockData[expenses[2].currency].ask).toFixed(2),
+    
 
 };
 
-mockTotais.totalGeral = (+mockTotais.totalExp1
-  + +mockTotais.totalExp2 + +mockTotais.totalExp3).toFixed(2);
+mockTotais.totalGeral = (+mockTotais.totalExp1 + +mockTotais.totalExp2 + +mockTotais.totalExp3).toFixed(2);
 
 export { mockTotais };

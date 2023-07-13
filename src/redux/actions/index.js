@@ -1,37 +1,71 @@
-export const ADD_USER = 'ADD_USER';
-export const ADD_EXPENSES = 'ADD_EXPENSES';
-export const REMOVE_EXPENSES = 'REMOVE_EXPENSES';
-export const EDIT_EXPENSES = 'EDIT_EXPENSES';
-export const SAVE_EDIT_EXPENSES = 'SAVE_EDIT_EXPENSES';
+export const ACTIONS = {
+  userLogin: 'userLogin',
+  fetchCurrencies: 'fetchCurrencies',
+  addExpense: 'addExpense',
+  removeExpense: 'removeExpense',
+  editExpense: 'editExpense',
+  updateExpense: 'updateExpense',
+  cancelEditExpense: 'cancelEditExpense',
+};
 
-export const REQUEST_CURRENCIES_SUCCESS = 'REQUEST_CURRENCIES_SUCCESS';
-
-export const addUser = (dataUser) => ({
-  type: ADD_USER,
-  payload: dataUser,
+export const actionUserLogin = (email) => ({
+  type: ACTIONS.userLogin,
+  payload: {
+    email,
+  },
 });
 
-export const requestCurrencies = (dataCurrencies) => ({
-  type: REQUEST_CURRENCIES_SUCCESS,
-  payload: dataCurrencies,
+const actionCurrencies = (currencies) => ({
+  type: ACTIONS.fetchCurrencies,
+  payload: currencies,
 });
 
-export const addExpense = (expenses) => ({
-  type: ADD_EXPENSES,
-  payload: expenses,
+export const fetchCurrencies = () => async (dispatch) => {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+  const payload = Object.keys(data).filter(
+    (curr) => curr !== 'USDT',
+  );
+  dispatch(actionCurrencies(payload));
+};
+
+const addExpense = (expenseWithRates) => ({
+  type: ACTIONS.addExpense,
+  payload: expenseWithRates,
 });
 
-export const removeExpense = (expenseId) => ({
-  type: REMOVE_EXPENSES,
+const updateExpense = (expenseWithRates) => ({
+  type: ACTIONS.updateExpense,
+  payload: expenseWithRates,
+});
+
+export const actionWalletEditExpense = (expense) => async (dispatch) => {
+  // fazer a requisição na API e adicionar ao payload
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+  const expenseWithRates = {
+    ...expense,
+    exchangeRates: data,
+  };
+
+  const menosUm = -1;
+  if (expense.id > menosUm) {
+    dispatch(updateExpense(expenseWithRates));
+  } else {
+    dispatch(addExpense(expenseWithRates));
+  }
+};
+
+export const actionRemoveExpense = (expenseId) => ({
+  type: ACTIONS.removeExpense,
   payload: expenseId,
 });
 
-export const editExpense = (expenseId) => ({
-  type: EDIT_EXPENSES,
+export const actionEditExpense = (expenseId) => ({
+  type: ACTIONS.editExpense,
   payload: expenseId,
 });
 
-export const saveEditedExpense = (expense) => ({
-  type: SAVE_EDIT_EXPENSES,
-  payload: expense,
+export const actionCancelEditExpense = () => ({
+  type: ACTIONS.cancelEditExpense,
 });

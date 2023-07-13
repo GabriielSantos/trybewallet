@@ -1,85 +1,86 @@
+import { Button, TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addUser } from '../redux/actions';
-import './Login.css';
+import validator from 'validator';
+import logo from '../media/images/logo.png';
+import { actionUserLogin } from '../redux/actions';
+
+const sxInput = { filter: 'invert(95%)' };
 
 class Login extends React.Component {
   state = {
-    isDisable: true,
-    email: '',
+    btnDisable: true,
     password: '',
+    email: '',
   };
 
-  handleEmail = ({ target }) => {
-    const { value } = target;
-    this.setState({ email: value }, () => {
-      this.handleLogin();
-    });
+  goToWallet = () => {
+    const { history, dispatch } = this.props;
+    const { email } = this.state;
+    dispatch(actionUserLogin(email));
+    history.push('/carteira');
   };
 
-  handlePassword = ({ target }) => {
-    const { value } = target;
-    this.setState({ password: value }, () => {
-      this.handleLogin();
-    });
-  };
-
-  handleLogin = () => {
+  validateFields = () => {
     const { email, password } = this.state;
+    const validEmail = validator.isEmail(email);
     const minLength = 6;
+    const validPassword = password.length >= minLength;
+    this.setState({ btnDisable: !(validEmail && validPassword) });
+  };
 
-    const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const isDisable = !(validateEmail.test(email) && password.length >= minLength);
-
-    this.setState({ isDisable });
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({
+      [name]: value,
+    }, this.validateFields);
   };
 
   render() {
-    const { dispatch } = this.props;
-    const { isDisable, email, password } = this.state;
+    const { btnDisable, email, password } = this.state;
 
     return (
-      <div className="containerLogin">
-        <h1>Trybe Wallet</h1>
+      <div className="Login glass">
+        <img className="Login__img" src={ logo } alt="logo" />
 
-        <form className="login">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            data-testid="email-input"
-            onChange={ this.handleEmail }
-            value={ email }
-          />
+        <TextField
+          type="text"
+          name="email"
+          label="E-mail"
+          variant="filled"
+          data-testid="email-input"
+          value={ email }
+          onChange={ this.handleChange }
+          sx={ sxInput }
+        />
+        <TextField
+          type="password"
+          name="password"
+          label="Password"
+          variant="filled"
+          data-testid="password-input"
+          value={ password }
+          onChange={ this.handleChange }
+          sx={ sxInput }
+        />
+        <Button
+          onClick={ this.goToWallet }
+          disabled={ btnDisable }
+          variant="contained"
+          sx={ sxInput }
+        >
+          Entrar
 
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Senha"
-            data-testid="password-input"
-            onChange={ this.handlePassword }
-            value={ password }
-          />
-
-          <Link to="/carteira">
-            <button
-              disabled={ isDisable }
-              onClick={ () => dispatch(addUser(email)) }
-            >
-              Entrar
-            </button>
-          </Link>
-        </form>
+        </Button>
       </div>
     );
   }
 }
 
 Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
