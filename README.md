@@ -1,10 +1,5 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Neste projeto, foram usados conceitos de Componentes e manipulação de Estados em React.
+
+Através da manipulação de estados foi possível realizar o projeto proposto pela Trybe de criar uma carteira de despesas digital, utilizando a requisição a uma API de moedas estrangeiras.
+
+Acesse o Projeto: https://trybewallet-lime.vercel.app/
