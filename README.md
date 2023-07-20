@@ -13,7 +13,8 @@ Front-end:
 > Frontend
 ```bash
   npm install
-``` 
+```
+
 ## Executando aplicação
 
 * Para rodar o front-end:
