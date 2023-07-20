@@ -6,7 +6,7 @@ Este projeto consiste em uma aplicação de uma Wallet Digital, em que você tem
 ## Técnologias usadas
 
 Front-end:
-> Desenvolvido usando: React.js, Redux, React Route, React Icon, CSS3, HTML5, Material UI.
+> Desenvolvido usando: React.js, Redux, Javascript, React Route, React Icon, CSS3, HTML5, Material UI.
 
 ## Instalando Dependências
 
